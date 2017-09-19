@@ -16,3 +16,11 @@ hs_err_pid*
 
 /nbproject/private/*
 ex/
+/dist/
+build/built-jar.properties
+build/classes/.netbeans_update_resources
+build/classes/.netbeans_automatic_build
+build/classes/.netbeans_automatic_build
+build/classes/.netbeans_update_resources
+nbproject/private/private.properties
+nbproject/private/private.xml
