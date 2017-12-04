@@ -22,6 +22,7 @@ public class TexoScreen extends javax.swing.JFrame {
     private Point mouseDownCompCoords = null;
     private final LinkedList<Tasto> list;
     private int counter;
+    private int istanziato=0;
 
     public TexoScreen() {
         this.counter = 0;
@@ -100,7 +101,7 @@ public class TexoScreen extends javax.swing.JFrame {
 
         jLabel2.setForeground(new java.awt.Color(255, 51, 102));
 
-        jLabel3.setText("Tasti attivi:");
+        jLabel3.setText("Active boxes:");
 
         jTextField2.setText("Q,W,E,R");
 
@@ -118,7 +119,7 @@ public class TexoScreen extends javax.swing.JFrame {
             }
         });
 
-        sizejButton.setText("Dimensioni");
+        sizejButton.setText("Box Size");
         sizejButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sizejButtonActionPerformed(evt);
@@ -155,22 +156,24 @@ public class TexoScreen extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(18, 18, 18)
+                                        .addGap(32, 32, 32)
                                         .addComponent(ClearButton))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(1, 1, 1)
                                         .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(24, 24, 24)
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(36, 36, 36)
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(distanzaTasti, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(distanzaTasti, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(29, 29, 29)))
                                 .addGap(82, 82, 82))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -393,10 +396,22 @@ public class TexoScreen extends javax.swing.JFrame {
         jTextField1.setText("");
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
+    public TexoScreen getInstance(){
+        if (istanziato == 0){          
+           istanziato = 1;  
+                 java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new TexoScreen().setVisible(true);
+            }
+        });
+        }
+        return this;
+       
+    }
+    
+    
+    public void start() {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -422,11 +437,7 @@ public class TexoScreen extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TexoScreen().setVisible(true);
-            }
-        });
+  
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
